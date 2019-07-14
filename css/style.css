@@ -21,6 +21,14 @@ ul {
 }
 .container {position: relative;}
 button:focus {outline: none}
+::placeholder {color: #8b8b8b;}
+input, textarea {
+    outline: none;
+    border: 1px solid #8b8b8b;
+    color: #8b8b8b;
+    padding-left: 5px;
+    width: 100%;
+}
 
 /* ========== Table of content ==========
  1. Top hidden
@@ -34,7 +42,9 @@ button:focus {outline: none}
  9. Clients section
 10. Top footer
 11. Bottom footer
-12. Responsive
+12. Headline section
+13. Contact content section
+14. Responsive
 */
 
 /* ========== 1. Top hidden ========== */
@@ -97,13 +107,6 @@ header {
 	margin-top: 4px;
 	font-size: 14px;
 	font-weight: 700;
-}
-input {
-    outline: none;
-    border: 1px solid #e9e9e9;
-    color: #e9e9e9;
-    padding-left: 5px;
-    width: 100%;
 }
 .btn {
     background-color: #e9e9e9;
@@ -519,7 +522,70 @@ footer {width: 100%;}
 }
 #toTop:hover {background-color: #222}
 
-/* ========== 12. Responsive ========== */
+/* ========== 12. Headline section ========== */
+.headline {
+    width: 100%;
+    background-color: #111;
+    padding: 26px 0;
+    margin-top: 20px;
+}
+.headline-title {
+    font-size: 45px;
+    color: #fff;
+}
+.headline-nav {
+    float: right;
+    padding-top: 20px;
+}
+.headline-nav li {
+    display: inline-block;
+    color: #fff;
+    font-size: 13px;
+    padding-left: 8px;
+}
+.headline-nav li a {
+    text-decoration: none;
+}
+.headline-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.fa-angle-right {
+    margin-left: 6px;
+}
+
+/* ========== 13. Contact content section ========== */
+.contact-content {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 35px;
+}
+.contact {
+    font-size: 13px;
+    height: 40px;
+    padding-left: 20px;
+}
+.message {
+    height: 250px;
+    padding-top: 15px;
+}
+.contact-title {
+    font-size: 26px;
+    margin: 7px 0 22px;
+}
+.contact-btn {
+    width: 160px;
+    height: 45px;
+    margin-top: 30px;
+    background-color: #ef5523;
+    color: #fff;
+}
+.contact-btn:hover {
+    background-color: #222;
+    color: #fff;
+}
+
+/* ========== 14. Responsive ========== */
 @media only screen and (max-width: 992px){
 	.slideShow-caption {
         width: 75%;
@@ -575,6 +641,7 @@ footer {width: 100%;}
     .overlay-img {
         height: 370px;
     }
+    .headline-nav {float: left;}
 }
 
 @media only screen and (max-width: 540px){
