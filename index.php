@@ -198,7 +198,7 @@
      <div class="row navigation">
        <div class="col-md-4 col-lg-4 col-sm-8">
          <div class="logo">
-             <a href="index.html"><img src="img/logo.png" alt="" class="logo-img" /></a>
+             <a href="index.php"><img src="img/logo.png" alt="" class="logo-img" /></a>
              <h1 class="header-title">Flat and trendy bootstrap template</h1>
          </div>
        </div>
@@ -210,12 +210,12 @@
        <div class="col-md-7 col-lg-7 col-sm-12 nav-bar">
          <nav>
            <ul>
-               <li><a href="index.html" class="active">Home</a></li>
+               <li><a href="index.php" class="active">Home</a></li>
                <li><a href="#">Features</a></li>
                <li><a href="#">Pages</a></li>
                <li><a href="#">Portfolio</a></li>
                <li><a href="#">Blog</a></li>
-               <li><a href="contact.html">Contact</a></li>
+               <li><a href="contact.php">Contact</a></li>
            </ul>
          </nav>
        </div>

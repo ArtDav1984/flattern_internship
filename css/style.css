@@ -584,6 +584,43 @@ footer {width: 100%;}
     background-color: #222;
     color: #fff;
 }
+.star {display: none;}
+.star-label {
+    font-size: 50px;
+    margin-top: -20px;
+    color: #8b8b8b;
+    cursor: pointer;
+}
+.validate, .error {
+    display: none;
+    color: red;
+}
+.success {
+    display: none;
+}
+.review-list {
+    padding: 20px 20px 10px;
+    box-shadow: 10px 10px 24px 0px rgba(0,0,0,0.2);
+    width: 98%;
+    margin: 0 auto;
+}
+.margintop {
+    margin-top: 10px;
+}
+.review-form {
+    margin-top: 50px;
+}
+.rate-desc {
+    font-size: 22px;
+    color: gold;
+    margin-top: -15px;
+}
+.rate-desc span {
+    font-size: 30px;
+}
+.message-desc {
+    font-size: 14px;
+}
 
 /* ========== 14. Responsive ========== */
 @media only screen and (max-width: 992px){

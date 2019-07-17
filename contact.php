@@ -198,7 +198,7 @@
     <div class="row navigation">
       <div class="col-md-4 col-lg-4 col-sm-8">
         <div class="logo">
-            <a href="index.html"><img src="img/logo.png" alt="" class="logo-img" /></a>
+            <a href="index.php"><img src="img/logo.png" alt="" class="logo-img" /></a>
             <h1 class="header-title">Flat and trendy bootstrap template</h1>
         </div>
       </div>
@@ -210,12 +210,12 @@
       <div class="col-md-7 col-lg-7 col-sm-12 nav-bar">
         <nav>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="#">Features</a></li>
             <li><a href="#">Pages</a></li>
             <li><a href="#">Portfolio</a></li>
             <li><a href="#">Blog</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="contact.php" class="active">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -229,12 +229,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-lg-6 col-sm-6">
-        <h2 class="headline-title">Get in touch</h2>
+        <h2 class="headline-title">Reviews</h2>
       </div>
       <div class="col-md-6 col-lg-6 col-sm-6">
         <ul class="headline-nav">
           <li><a href="#"><i class="fas fa-home"></i></a> <i class="fas fa-angle-right"></i></li>
-          <li>Contact</li>
+          <li>Reviews</li>
         </ul>
       </div>
     </div>
@@ -243,30 +243,86 @@
 <!-- ========== End headline section ========== -->
 <!-- ========== Contact content section ========== -->
 <section class="contact-content">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.8848528518!2d43.83613351490692!3d40.
-            786545540989565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4041fbed15cdb0cb%3A0xea64b7ee5515c5de!
-            2sGyumri+Technology+Center!5e0!3m2!1sru!2s!4v1546783566296" width="100%" height="380" frameborder="0"
-            style="border:0" allowfullscreen>
-    </iframe>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12">
-        <h4 class="contact-title">Get in touch with us by filling <strong>contact form below</strong></h4>
-        <form method="post">
+
+        <?php require_once 'php/select_data.php'; ?>
+
+        <?php if($result) : ?>
+
+        <div class="row">
+
+        <?php foreach ($result as $item) : ?>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 margintop">
+          <div class="row review-list">
+          <div class="col-md-2 col-lg-2 col-sm-2">
+            <h5>User:</h5>
+          </div>
+          <div class="col-md-10 col-lg-10 col-sm-10">
+            <p><?php echo $item['name']; ?></p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-sm-2">
+            <h5>Rate:</h5>
+          </div>
+          <div class="col-md-10 col-lg-10 col-sm-10">
+            <p class="rate-desc">
+                <?php echo $item['rate'].'.0'; ?>
+                <span>
+                  <?php for ($i = 1; $i <= $item['rate']; $i ++) : ?>
+                  <i class="fas fa-star"></i>
+                  <?php endfor; ?>
+                </span>
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-sm-2">
+            <h5>Review:</h5>
+          </div>
+          <div class="col-md-10 col-lg-10 col-sm-10">
+            <p class="message-desc"><?php echo $item['message']; ?></p>
+          </div>
+          </div>
+        </div>
+
+        <?php endforeach; ?>
+
+        </div>
+
+        <?php endif; ?>
+
+
+    <div class="row review-form">
+        <div class="col-md-12 col-lg-12 col-sm-12 text-center success"></div>
+        <div class="col-md-12 col-lg-12 col-sm-12 text-center error"></div>
+      <div class="col-md-12 col-lg-12 col-sm-12 review-block">
+        <h4 class="contact-title">How was your experience in our website</h4>
+        <form method="post" id="reviewForm">
           <div class="row">
             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
-              <input type="text" name="name" class="contact" id="name" placeholder="Your Name" />
+              <input type="text" name="name" class="contact required" id="name" placeholder="Your Name" />
+              <div class="validate" id="errName"></div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
-              <input type="text" class="contact" name="contact-email" id="contact-email" placeholder="Your Email" />
+              <input type="text" class="contact required" name="contact-email" id="contact-email" placeholder="Your Email" />
+              <div class="validate" id="errEmail"></div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12 form-group">
-              <input type="text" class="contact" name="subject" id="subject" placeholder="Subject" />
+                <label for="star1" class="star-label" data-target="1"><i class="fas fa-star"></i></label>
+                <input type="radio" name="rate" value="1" id="star1" class="star" />
+                <label for="star2" class="star-label" data-target="2"><i class="fas fa-star"></i></label>
+                <input type="radio" name="rate" value="2" id="star2" class="star" />
+                <label for="star3" class="star-label" data-target="3"><i class="fas fa-star"></i></label>
+                <input type="radio" name="rate" value="3" id="star3" class="star" />
+                <label for="star4" class="star-label" data-target="4"><i class="fas fa-star"></i></label>
+                <input type="radio" name="rate" value="4" id="star4" class="star" />
+                <label for="star5" class="star-label" data-target="5"><i class="fas fa-star"></i></label>
+                <input type="radio" name="rate" value="5" id="star5" class="star" />
+                <div class="validate" id="errRate"></div>
             </div>
             <div class="col-md-12 col-lg-12 col-sm-12 form-group">
-              <textarea class="contact message" name="message" id="message"  placeholder="Message"></textarea>
+              <textarea class="contact message required" name="message" id="message"  placeholder="Message"></textarea>
+              <div class="validate" id="errMessage"></div>
               <p class="text-center">
-                <button class="btn contact-btn" type="submit">Submit message</button>
+                <button class="btn contact-btn" id="reviewBtn" type="submit">Submit review</button>
               </p>
             </div>
           </div>
@@ -358,6 +414,7 @@
 <!-- ========== JS ========== -->
 <script src="js/jquery.js"></script>
 <script src="js/main.js"></script>
+<script src="js/review.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
